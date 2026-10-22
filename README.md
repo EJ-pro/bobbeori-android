@@ -41,4 +41,9 @@ VERSION_NAME=표시할 버전명
 ## 문서
 
 - [MVP 제품 요구사항 정의서](docs/product/PRD.md)
+- [MVP 사용자 흐름](docs/design/USER_FLOW.md)
+- [MVP 화면 명세](docs/design/SCREEN_SPEC.md)
+- [MVP 시스템 아키텍처](docs/architecture/SYSTEM_ARCHITECTURE.md)
+- [Supabase 데이터 모델](docs/architecture/DATA_MODEL.md)
+- [API 계약 초안](docs/architecture/API_CONTRACT.md)
 - [초기 사업계획서 SVG](docs/business-plan/)
