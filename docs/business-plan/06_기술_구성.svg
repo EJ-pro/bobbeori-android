@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1920" viewBox="0 0 1440 1920">
+  <rect width="1440" height="1920" fill="#FFFFFF"/>
+  <text x="96" y="150" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="54" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="96" dy="0">간단한 구조로 시작한다</tspan></text>
+  <text x="96" y="218" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="25" font-weight="450" fill="#5F6875" text-anchor="start"><tspan x="96" dy="0">기존 출시 앱의 정체성만 유지하고 내부는 새로 개발한다</tspan></text>
+  <text x="1344" y="1828" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="20" font-weight="600" fill="#5F6875" text-anchor="end"><tspan x="1344" dy="0">06</tspan></text>
+  <g transform="translate(96 310)">
+<rect x="0" y="80" width="1248" height="230" rx="28" fill="#EEF4FC" stroke="#EEF4FC" stroke-width="2"/>
+<text x="48" y="155" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="35" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="48" dy="0">Android 앱</tspan></text>
+<text x="48" y="230" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="28" font-weight="600" fill="#5F6875" text-anchor="start"><tspan x="48" dy="0">Kotlin  ·  Jetpack Compose  ·  조리 세션과 화면 상태</tspan></text>
+<text x="624" y="380" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="42" font-weight="700" fill="#2457A6" text-anchor="middle"><tspan x="624" dy="0">↓</tspan></text>
+<rect x="0" y="450" width="378" height="310" rx="26" fill="#F7F8FA" stroke="#DCE2EA" stroke-width="2"/>
+<text x="32" y="525" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="31" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="32" dy="0">Supabase Auth</tspan></text>
+<text x="32" y="610" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="24" font-weight="500" fill="#5F6875" text-anchor="start"><tspan x="32" dy="0">사용자 인증과 세션</tspan></text>
+<rect x="435" y="450" width="378" height="310" rx="26" fill="#F7F8FA" stroke="#DCE2EA" stroke-width="2"/>
+<text x="467" y="525" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="31" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="467" dy="0">Supabase DB</tspan></text>
+<text x="467" y="610" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="24" font-weight="500" fill="#5F6875" text-anchor="start"><tspan x="467" dy="0">레시피와 조리 상태</tspan></text>
+<rect x="870" y="450" width="378" height="310" rx="26" fill="#F7F8FA" stroke="#DCE2EA" stroke-width="2"/>
+<text x="902" y="525" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="31" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="902" dy="0">Edge Functions</tspan></text>
+<text x="902" y="610" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="24" font-weight="500" fill="#5F6875" text-anchor="start"><tspan x="902" dy="0">영상 처리와 AI 호출</tspan></text>
+<text x="0" y="960" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="35" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="0" dy="0">출시 이력에서 유지할 것</tspan></text>
+<rect x="0" y="1030" width="206" height="54" rx="27" fill="#EEF4FC" stroke="#EEF4FC" stroke-width="2"/><text x="103" y="1066" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="22" font-weight="700" fill="#2457A6" text-anchor="middle"><tspan x="103" dy="0">앱 식별자</tspan></text><text x="0" y="1128" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="29" font-weight="500" fill="#171A21" text-anchor="start"><tspan x="0" dy="0">기존 applicationId를 그대로 사용한다</tspan></text>
+<rect x="0" y="1220" width="130" height="54" rx="27" fill="#EEF4FC" stroke="#EEF4FC" stroke-width="2"/><text x="65" y="1256" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="22" font-weight="700" fill="#2457A6" text-anchor="middle"><tspan x="65" dy="0">서명</tspan></text><text x="0" y="1318" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="29" font-weight="500" fill="#171A21" text-anchor="start"><tspan x="0" dy="0">기존 Play App Signing과 업로드 키 체계를 유지한다</tspan></text>
+<rect x="0" y="1410" width="130" height="54" rx="27" fill="#EEF4FC" stroke="#EEF4FC" stroke-width="2"/><text x="65" y="1446" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="22" font-weight="700" fill="#2457A6" text-anchor="middle"><tspan x="65" dy="0">버전</tspan></text><text x="0" y="1508" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="29" font-weight="500" fill="#171A21" text-anchor="start"><tspan x="0" dy="0">기존보다 높은 versionCode로 같은 Play Console 앱에 배포한다</tspan></text>
+</g></svg>

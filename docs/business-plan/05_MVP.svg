@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1920" viewBox="0 0 1440 1920">
+  <rect width="1440" height="1920" fill="#FFFFFF"/>
+  <text x="96" y="150" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="54" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="96" dy="0">첫 버전에 필요한 것만 만든다</tspan></text>
+  <text x="96" y="218" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="25" font-weight="450" fill="#5F6875" text-anchor="start"><tspan x="96" dy="0">링크 입력부터 요리 완료까지 한 흐름을 검증한다</tspan></text>
+  <text x="1344" y="1828" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="20" font-weight="600" fill="#5F6875" text-anchor="end"><tspan x="1344" dy="0">05</tspan></text>
+  <g transform="translate(96 310)">
+<text x="0" y="50" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="34" font-weight="800" fill="#2457A6" text-anchor="start"><tspan x="0" dy="0">포함</tspan></text>
+<rect x="0" y="90" width="596" height="980" rx="28" fill="#EEF4FC" stroke="#EEF4FC" stroke-width="2"/>
+<text x="44" y="160" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="31" font-weight="650" fill="#171A21" text-anchor="start"><tspan x="44" dy="0">유튜브 링크 입력</tspan><tspan x="44" dy="46.5"></tspan><tspan x="44" dy="46.5">자막과 설명 기반 레시피 추출</tspan><tspan x="44" dy="46.5"></tspan><tspan x="44" dy="46.5">재료와 단계 확인 및 수정</tspan><tspan x="44" dy="46.5"></tspan><tspan x="44" dy="46.5">단계별 조리 대화</tspan><tspan x="44" dy="46.5"></tspan><tspan x="44" dy="46.5">대체 재료와 문제 해결</tspan><tspan x="44" dy="46.5"></tspan><tspan x="44" dy="46.5">가벼운 스몰토크</tspan><tspan x="44" dy="46.5"></tspan><tspan x="44" dy="46.5">조리 진행 상태 복원</tspan></text>
+<text x="652" y="50" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="34" font-weight="800" fill="#5F6875" text-anchor="start"><tspan x="652" dy="0">제외</tspan></text>
+<rect x="652" y="90" width="596" height="980" rx="28" fill="#F7F8FA" stroke="#DCE2EA" stroke-width="2"/>
+<text x="696" y="160" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="31" font-weight="650" fill="#5F6875" text-anchor="start"><tspan x="696" dy="0">냉장고 재료 관리</tspan><tspan x="696" dy="46.5"></tspan><tspan x="696" dy="46.5">레시피 탐색과 추천 피드</tspan><tspan x="696" dy="46.5"></tspan><tspan x="696" dy="46.5">장보기 목록</tspan><tspan x="696" dy="46.5"></tspan><tspan x="696" dy="46.5">영수증과 OCR</tspan><tspan x="696" dy="46.5"></tspan><tspan x="696" dy="46.5">캘린더와 기존 알림</tspan><tspan x="696" dy="46.5"></tspan><tspan x="696" dy="46.5">범용 AI 비서</tspan><tspan x="696" dy="46.5"></tspan><tspan x="696" dy="46.5">커뮤니티와 공개 피드</tspan></text>
+<text x="0" y="1240" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="35" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="0" dy="0">MVP 성공 기준</tspan></text>
+<text x="0" y="1320" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="40" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="0" dy="0">사용자가 분석 결과를 신뢰하고, 대화로 요리를 끝낸 뒤</tspan><tspan x="0" dy="56">다른 영상에서도 다시 사용하는가</tspan></text>
+</g></svg>

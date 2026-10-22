@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1920" viewBox="0 0 1440 1920">
+  <rect width="1440" height="1920" fill="#FFFFFF"/>
+  <text x="96" y="150" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="54" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="96" dy="0">작게 검증하고 출시 앱으로 확장한다</tspan></text>
+  
+  <text x="1344" y="1828" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="20" font-weight="600" fill="#5F6875" text-anchor="end"><tspan x="1344" dy="0">08</tspan></text>
+  <g transform="translate(96 310)">
+<rect x="0" y="40" width="1248" height="260" rx="26" fill="#F7F8FA" stroke="#DCE2EA" stroke-width="2"/>
+<text x="44" y="120" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="33" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="44" dy="0">1  문제 검증</tspan></text>
+<text x="44" y="210" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="27" font-weight="500" fill="#5F6875" text-anchor="start"><tspan x="44" dy="0">타겟 인터뷰와 실제 조리 관찰로 막히는 순간을 확인한다</tspan></text>
+<rect x="0" y="340" width="1248" height="260" rx="26" fill="#F7F8FA" stroke="#DCE2EA" stroke-width="2"/>
+<text x="44" y="420" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="33" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="44" dy="0">2  기술 검증</tspan></text>
+<text x="44" y="510" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="27" font-weight="500" fill="#5F6875" text-anchor="start"><tspan x="44" dy="0">지원 가능한 영상 조건과 레시피 추출 정확도를 확인한다</tspan></text>
+<rect x="0" y="640" width="1248" height="260" rx="26" fill="#EEF4FC" stroke="#EEF4FC" stroke-width="2"/>
+<text x="44" y="720" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="33" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="44" dy="0">3  MVP 개발</tspan></text>
+<text x="44" y="810" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="27" font-weight="500" fill="#5F6875" text-anchor="start"><tspan x="44" dy="0">링크 입력부터 대화형 조리 완료까지 하나의 흐름을 구현한다</tspan></text>
+<rect x="0" y="940" width="1248" height="260" rx="26" fill="#F7F8FA" stroke="#DCE2EA" stroke-width="2"/>
+<text x="44" y="1020" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="33" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="44" dy="0">4  비공개 테스트</tspan></text>
+<text x="44" y="1110" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="27" font-weight="500" fill="#5F6875" text-anchor="start"><tspan x="44" dy="0">정확도, 조리 완료, 반복 사용과 AI 비용을 측정한다</tspan></text>
+<rect x="0" y="1240" width="1248" height="260" rx="26" fill="#F7F8FA" stroke="#DCE2EA" stroke-width="2"/>
+<text x="44" y="1320" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="33" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="44" dy="0">5  출시 업데이트</tspan></text>
+<text x="44" y="1410" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="27" font-weight="500" fill="#5F6875" text-anchor="start"><tspan x="44" dy="0">기존 패키지와 서명을 유지해 같은 Play 앱으로 배포한다</tspan></text>
+</g></svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1920" viewBox="0 0 1440 1920">
+  <rect width="1440" height="1920" fill="#FFFFFF"/>
+  <text x="96" y="150" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="54" font-weight="800" fill="#171A21" text-anchor="start"><tspan x="96" dy="0">밥벌이 사업계획서</tspan></text>
+  <text x="96" y="218" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="25" font-weight="450" fill="#5F6875" text-anchor="start"><tspan x="96" dy="0">유튜브 요리 영상을 대화형 조리 경험으로 바꾸는 Android 앱</tspan></text>
+  <text x="1344" y="1828" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="20" font-weight="600" fill="#5F6875" text-anchor="end"><tspan x="1344" dy="0">01</tspan></text>
+  <g transform="translate(96 310)">
+<text x="0" y="220" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="62" font-weight="850" fill="#171A21" text-anchor="start"><tspan x="0" dy="0">링크 하나로</tspan><tspan x="0" dy="80.60000000000001">레시피를 정리하고</tspan><tspan x="0" dy="80.60000000000001">요리가 끝날 때까지 돕는다</tspan></text>
+<rect x="0" y="700" width="1248" height="360" rx="28" fill="#EEF4FC" stroke="#EEF4FC" stroke-width="2"/>
+<text x="48" y="770" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="24" font-weight="750" fill="#2457A6" text-anchor="start"><tspan x="48" dy="0">제품 정의</tspan></text>
+<text x="48" y="850" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="38" font-weight="650" fill="#171A21" text-anchor="start"><tspan x="48" dy="0">사용자가 선택한 유튜브 요리 영상에서</tspan><tspan x="48" dy="57">재료와 조리 단계를 추출하고, 현재 진행 상황을</tspan><tspan x="48" dy="57">기억하며 질문에 답하는 AI 요리 동행 앱</tspan></text>
+<text x="0" y="1220" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="25" font-weight="750" fill="#2457A6" text-anchor="start"><tspan x="0" dy="0">핵심 고객</tspan></text>
+<text x="0" y="1290" font-family="Pretendard, Malgun Gothic, sans-serif" font-size="39" font-weight="700" fill="#171A21" text-anchor="start"><tspan x="0" dy="0">유튜브 레시피를 실제 조리에 활용하는</tspan><tspan x="0" dy="56.55">20~30대 1~2인 가구 요리 초보</tspan></text>
+</g></svg>
