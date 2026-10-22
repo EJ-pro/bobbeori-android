@@ -27,6 +27,8 @@
 2. Gradle Sync가 완료될 때까지 기다립니다.
 3. API 26 이상의 에뮬레이터 또는 실제 기기에서 `app` 구성을 실행합니다.
 
+Supabase 로컬 환경과 데이터베이스 검증 방법은 [Supabase local development](supabase/README.md)를 참고합니다.
+
 ## 릴리스 버전
 
 로컬 디버그 기본값은 `versionCode=1`, `versionName=2.0.0-dev`입니다. 실제 배포 시 저장소에 비밀값을 커밋하지 않고 다음 Gradle 속성을 CI 또는 안전한 로컬 환경에서 전달합니다.

@@ -1,0 +1,2 @@
+-- Intentionally empty.
+-- Local test fixtures are created inside pgTAP transactions under tests/database.
