@@ -37,6 +37,8 @@ android {
 
     buildTypes {
         debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
             buildConfigField("String", "SUPABASE_URL", configuredValue("SUPABASE_URL").asBuildConfigString())
             buildConfigField(
                 "String",
