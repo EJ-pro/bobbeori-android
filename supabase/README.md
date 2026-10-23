@@ -14,6 +14,14 @@ npx supabase test db
 npx supabase db lint --level warning
 ```
 
+Android에서 영상 검증과 분석 작업 생성을 시험할 때는 Supabase를 시작한 뒤 별도 터미널에서 Edge Functions를 실행합니다.
+
+```powershell
+npx supabase functions serve
+```
+
+현재 `validate-video`는 YouTube URL을 검증·정규화하고, `create-extraction`은 인증 사용자의 중복되지 않는 `QUEUED` 작업을 생성합니다. 실제 영상 메타데이터 수집과 AI 추출 worker는 다음 구현 단계입니다.
+
 `db reset` recreates the local database, applies every migration in order, and then executes `seed.sql`.
 
 The local Postgres port is `55432` and the shadow database port is `55430`. These non-default ports avoid Docker Desktop port-forwarding conflicts on this Windows development machine.
@@ -25,6 +33,10 @@ Local analytics log collection is disabled because it is not required for the MV
 ```text
 supabase/
 ├─ config.toml
+├─ functions/
+│  ├─ _shared/
+│  ├─ validate-video/
+│  └─ create-extraction/
 ├─ migrations/
 ├─ tests/database/
 └─ seed.sql
