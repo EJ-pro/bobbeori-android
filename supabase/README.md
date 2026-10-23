@@ -20,7 +20,13 @@ Android에서 영상 검증과 분석 작업 생성을 시험할 때는 Supabase
 npx supabase functions serve
 ```
 
-현재 `validate-video`는 YouTube URL을 검증·정규화하고, `create-extraction`은 인증 사용자의 중복되지 않는 `QUEUED` 작업을 생성합니다. 실제 영상 메타데이터 수집과 AI 추출 worker는 다음 구현 단계입니다.
+함수 역할은 다음과 같습니다.
+
+- `validate-video`: YouTube URL 검증·정규화
+- `create-extraction`: 인증 사용자의 중복되지 않는 `QUEUED` 작업 생성
+- `process-extraction`: 자막 수집, OpenAI 구조화 레시피 추출, 검증 및 원자적 저장
+
+로컬에서는 Git에서 제외된 `supabase/functions/.env`에 `EXTRACTION_FIXTURE_MODE=true`를 설정하면 외부 비용 없이 전체 저장 흐름을 확인할 수 있습니다. 운영에서는 fixture 모드를 반드시 끄고 `.env.example`의 자막 공급자와 OpenAI 비밀값을 Supabase Secrets로 설정해야 합니다. 비밀값은 Android 앱에 넣지 않습니다.
 
 `db reset` recreates the local database, applies every migration in order, and then executes `seed.sql`.
 
@@ -36,7 +42,8 @@ supabase/
 ├─ functions/
 │  ├─ _shared/
 │  ├─ validate-video/
-│  └─ create-extraction/
+│  ├─ create-extraction/
+│  └─ process-extraction/
 ├─ migrations/
 ├─ tests/database/
 └─ seed.sql

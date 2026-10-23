@@ -1,6 +1,6 @@
 begin;
 
-select plan(18);
+select plan(19);
 
 select has_table('public', 'profiles', 'profiles table exists');
 select has_table('public', 'user_preferences', 'user_preferences table exists');
@@ -52,6 +52,12 @@ select has_trigger(
   'users',
   'on_auth_user_created',
   'auth user creation provisions app profile'
+);
+select has_function(
+  'public',
+  'complete_extraction_job',
+  array['uuid', 'uuid', 'jsonb', 'text', 'text', 'text'],
+  'recipe extraction completion RPC exists'
 );
 
 select * from finish();

@@ -15,10 +15,15 @@ class ExtractionRepository {
             function = "validate-video",
             body = ValidateVideoRequest(url = url, inputMethod = inputMethod),
         )
-        return invoke<CreateExtractionRequest, ExtractionJob>(
+        val job = invoke<CreateExtractionRequest, ExtractionJob>(
             function = "create-extraction",
             body = CreateExtractionRequest(sourceVideoId = validated.sourceVideoId),
             headers = mapOf("Idempotency-Key" to UUID.randomUUID().toString()),
+        )
+        if (job.status == "COMPLETED" || job.status == "NEEDS_REVIEW") return job
+        return invoke<ProcessExtractionRequest, ExtractionJob>(
+            function = "process-extraction",
+            body = ProcessExtractionRequest(jobId = job.jobId),
         )
     }
 

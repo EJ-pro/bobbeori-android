@@ -24,6 +24,9 @@ data class CreateExtractionRequest(
 )
 
 @Serializable
+data class ProcessExtractionRequest(val jobId: String)
+
+@Serializable
 data class ExtractionJob(
     val jobId: String,
     val status: String,

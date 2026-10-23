@@ -120,7 +120,11 @@ class MainActivity : ComponentActivity() {
                             SubmissionState.Idle, SubmissionState.Submitting -> Unit
                             is SubmissionState.Queued -> Text(
                                 modifier = Modifier.padding(top = 16.dp),
-                                text = "분석 요청이 등록됐어요. · ${submission.job.status}",
+                                text = when (submission.job.status) {
+                                    "COMPLETED" -> "레시피 분석이 완료됐어요."
+                                    "NEEDS_REVIEW" -> "분석 완료 · 확인이 필요한 정보가 있어요."
+                                    else -> "분석 요청이 등록됐어요. · ${submission.job.status}"
+                                },
                                 color = MaterialTheme.colorScheme.primary,
                             )
                             is SubmissionState.Error -> Text(
