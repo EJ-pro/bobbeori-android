@@ -24,7 +24,7 @@ npx supabase functions serve
 
 - `validate-video`: YouTube URL 검증·정규화
 - `create-extraction`: 인증 사용자의 중복되지 않는 `QUEUED` 작업 생성
-- `process-extraction`: 자막 수집, OpenAI 구조화 레시피 추출, 검증 및 원자적 저장
+- `process-extraction`: Supadata 자막 수집·비동기 생성 대기, OpenAI 구조화 레시피 추출, 검증 및 원자적 저장
 
 로컬에서는 Git에서 제외된 `supabase/functions/.env`에 `EXTRACTION_FIXTURE_MODE=true`를 설정하면 외부 비용 없이 전체 저장 흐름을 확인할 수 있습니다. 운영에서는 fixture 모드를 반드시 끄고 `.env.example`의 자막 공급자와 OpenAI 비밀값을 Supabase Secrets로 설정해야 합니다. 비밀값은 Android 앱에 넣지 않습니다.
 

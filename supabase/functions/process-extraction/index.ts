@@ -30,7 +30,7 @@ Deno.serve(async (request) => {
     const { data: source, error: sourceError } = await auth.admin.from("source_videos").select("platform_video_id,canonical_url,title").eq("id", job.source_video_id).single();
     if (sourceError) throw new WorkerError("VIDEO_NOT_SUPPORTED", false);
     const fixtureMode = Deno.env.get("EXTRACTION_FIXTURE_MODE") === "true";
-    const transcript = fixtureMode ? fixtureTranscript() : await fetchTranscript(source.platform_video_id, source.canonical_url);
+    const transcript = fixtureMode ? fixtureTranscript() : await fetchTranscript(source.canonical_url);
 
     await setJobState(auth.admin, job.id, "EXTRACTING", "GENERATING_RECIPE");
     const model = Deno.env.get("OPENAI_MODEL") ?? "gpt-6-luna";
@@ -67,15 +67,51 @@ async function setJobState(admin: any, jobId: string, status: string, progressSt
   if (updateError) throw new WorkerError("EXTRACTION_STATE_FAILED", true);
 }
 
-async function fetchTranscript(videoId: string, canonicalUrl: string): Promise<string> {
-  const providerUrl = Deno.env.get("TRANSCRIPT_PROVIDER_URL");
-  const providerKey = Deno.env.get("TRANSCRIPT_PROVIDER_KEY");
-  if (!providerUrl || !providerKey) throw new WorkerError("TRANSCRIPT_PROVIDER_NOT_CONFIGURED", false);
-  const response = await fetch(providerUrl, { method: "POST", headers: { Authorization: `Bearer ${providerKey}`, "Content-Type": "application/json" }, body: JSON.stringify({ videoId, url: canonicalUrl, language: "ko" }) });
-  if (!response.ok) throw new WorkerError("TRANSCRIPT_UNAVAILABLE", response.status >= 500);
-  const payload = await response.json() as { transcript?: unknown };
-  if (typeof payload.transcript !== "string" || payload.transcript.trim().length < 20) throw new WorkerError("SOURCE_INSUFFICIENT", false);
-  return payload.transcript.slice(0, 120_000);
+async function fetchTranscript(canonicalUrl: string): Promise<string> {
+  const apiKey = Deno.env.get("SUPADATA_API_KEY");
+  if (!apiKey) throw new WorkerError("TRANSCRIPT_PROVIDER_NOT_CONFIGURED", false);
+  const endpoint = new URL("https://api.supadata.ai/v1/transcript");
+  endpoint.searchParams.set("url", canonicalUrl);
+  endpoint.searchParams.set("mode", "auto");
+  const response = await fetch(endpoint, { headers: { "x-api-key": apiKey } });
+  const payload = await response.json().catch(() => null) as SupadataPayload | null;
+  if (response.status === 202 && payload?.jobId) return pollSupadata(payload.jobId, apiKey);
+  if (!response.ok) throw new WorkerError("TRANSCRIPT_UNAVAILABLE", response.status >= 500 || response.status === 429);
+  return transcriptText(payload);
+}
+
+async function pollSupadata(jobId: string, apiKey: string): Promise<string> {
+  for (let attempt = 0; attempt < 20; attempt += 1) {
+    await new Promise((resolve) => setTimeout(resolve, 2_000));
+    const response = await fetch(`https://api.supadata.ai/v1/transcript/${encodeURIComponent(jobId)}`, { headers: { "x-api-key": apiKey } });
+    const payload = await response.json().catch(() => null) as SupadataPayload | null;
+    if (!response.ok) throw new WorkerError("TRANSCRIPT_UNAVAILABLE", response.status >= 500 || response.status === 429);
+    if (payload?.status === "failed") throw new WorkerError("TRANSCRIPT_UNAVAILABLE", false);
+    if (payload?.status === "completed" || payload?.content || payload?.result?.content) return transcriptText(payload);
+  }
+  throw new WorkerError("TRANSCRIPT_TIMEOUT", true);
+}
+
+type SupadataSegment = { text?: unknown; offset?: unknown };
+type SupadataPayload = {
+  jobId?: string;
+  status?: string;
+  content?: string | SupadataSegment[];
+  result?: { content?: string | SupadataSegment[] };
+};
+
+function transcriptText(payload: SupadataPayload | null): string {
+  const content = payload?.content ?? payload?.result?.content;
+  const text = typeof content === "string"
+    ? content
+    : Array.isArray(content)
+    ? content.map((segment) => {
+      const seconds = typeof segment.offset === "number" ? Math.floor(segment.offset / 1_000) : null;
+      return `${seconds === null ? "" : `[${seconds}s] `}${typeof segment.text === "string" ? segment.text : ""}`;
+    }).join("\n")
+    : "";
+  if (text.trim().length < 20) throw new WorkerError("SOURCE_INSUFFICIENT", false);
+  return text.slice(0, 120_000);
 }
 
 async function extractRecipe(transcript: string, videoTitle: string | null, model: string): Promise<Recipe> {
@@ -84,7 +120,7 @@ async function extractRecipe(transcript: string, videoTitle: string | null, mode
   const response = await fetch("https://api.openai.com/v1/responses", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" }, body: JSON.stringify({
     model,
     input: [
-      { role: "system", content: "You extract Korean cooking recipes from transcripts. Never invent missing quantities or times; use null and UNKNOWN. Return steps in cooking order and preserve useful video timestamps." },
+      { role: "system", content: "Extract a cooking recipe from the transcript. Write every user-facing string in natural Korean, including the title, ingredient names, units, preparation notes, instructions, heat levels, cautions, and evidence text. Never invent missing quantities or times; use null and UNKNOWN. Return steps in cooking order and preserve useful video timestamps." },
       { role: "user", content: `영상 제목: ${videoTitle ?? "알 수 없음"}\n\n자막:\n${transcript}` },
     ],
     text: { format: { type: "json_schema", name: "recipe_extraction", strict: true, schema: recipeSchema } },
@@ -107,7 +143,7 @@ class WorkerError extends Error {
   get userMessage(): string {
     const messages: Record<string, string> = {
       TRANSCRIPT_PROVIDER_NOT_CONFIGURED: "자막 수집 서비스 설정이 필요합니다.", OPENAI_NOT_CONFIGURED: "AI 분석 서비스 설정이 필요합니다.",
-      TRANSCRIPT_UNAVAILABLE: "영상 자막을 가져오지 못했습니다.", SOURCE_INSUFFICIENT: "레시피를 만들 만큼 충분한 요리 정보를 찾지 못했습니다.",
+      TRANSCRIPT_UNAVAILABLE: "영상 자막을 가져오지 못했습니다.", TRANSCRIPT_TIMEOUT: "영상 자막 생성이 오래 걸리고 있습니다. 잠시 후 다시 시도해 주세요.", SOURCE_INSUFFICIENT: "레시피를 만들 만큼 충분한 요리 정보를 찾지 못했습니다.",
       AI_PROVIDER_UNAVAILABLE: "AI 분석 서비스가 일시적으로 응답하지 않습니다.", AI_RESPONSE_REFUSED: "이 영상은 AI가 분석할 수 없습니다.",
     };
     return messages[this.code] ?? "레시피 분석에 실패했습니다.";
